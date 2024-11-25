@@ -1,5 +1,42 @@
 # Todo Assignment ✅
 
+## 프로젝트 구조 📁
+```
+src/
+├── components/      # 리액트 컴포넌트
+│   ├── Layout/      # 레이아웃 관련 컴포넌트
+│   └── Todo/        # Todo 컴포넌트
+├── services/        # API 관련 서비스
+├── utils/           # 유틸리티 함수
+├── App.tsx          # 메인 애플리케이션 루트 컴포넌트
+└── main.tsx         # 애플리케이션 진입점
+```
+
+## 시작하기 🚀
+
+### 실행 방법
+1. 의존성 패키지 설치
+   ```bash
+   npm install
+   ```
+
+2. 개발 서버 실행
+   ```bash
+   npm run dev
+   ```
+
+### 빌드 방법
+1. 프로덕션 빌드
+   ```bash
+   npm run build
+   ```
+
+2. 빌드된 결과물 미리보기
+   ```bash
+   npm run preview
+   ```
+
+
 ## HTML, CSS Requirements 🎨
 - [x] 상단 좌측 레이아웃 구현
 - [x] TODO 구성요소 구현
@@ -25,3 +62,4 @@
 - [x] 토스트 메시지로 에러 알림
 - [x] 로딩 상태 표시
 - [x] 반응형 레이아웃
+
