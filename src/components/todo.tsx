@@ -6,11 +6,13 @@ import { TodoResponse } from '../typings/todo';
 import { validateTodo } from '../utils';
 import { ClipLoader } from 'react-spinners';
 
+const INITIALIZED_API_INDEX = 1;
+
 const Todo = () => {
   const [todos, setTodos] = useState<TodoResponse>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [newTodo, setNewTodo] = useState('');
-  const [currentApiIndex, setCurrentApiIndex] = useState(1);
+  const [currentApiIndex, setCurrentApiIndex] = useState(INITIALIZED_API_INDEX);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
