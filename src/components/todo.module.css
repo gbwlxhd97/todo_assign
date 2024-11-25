@@ -86,3 +86,40 @@
   align-items: center;
   padding: 20px 0;
 }
+
+@media (max-width: 768.98px) {
+  .container {
+    flex: 1;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .input {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .todoItem {
+    padding: 10px 0;
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .deleteButton {
+    padding: 6px 10px;
+    font-size: 18px;
+  }
+
+  .loadMoreButton {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
