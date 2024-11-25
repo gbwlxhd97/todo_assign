@@ -58,7 +58,10 @@ const Todo = () => {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.nativeEvent.isComposing) return; // 한글 입력시 문자 조합중 인지 체크
+    
     if (e.key === 'Enter') {
+      
       const validation = validateTodo(newTodo);
       if (!validation.isValid) {
         toast.error(validation.error);
