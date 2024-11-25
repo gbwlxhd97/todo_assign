@@ -1,6 +1,6 @@
 import { TodoResponse } from './../typings/todo';
 import { API_ENDPOINTS } from './../mocks/api_constant';
-import fetchTodo from './../utils/fetch';
+import {fetchTodo} from '../utils';
 
 export const fetchInitialTodos = async (): Promise<TodoResponse> => {
   try {
