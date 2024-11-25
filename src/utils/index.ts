@@ -1,7 +1,9 @@
 import { TodoResponse } from '../typings/todo';
 
-export const fetchTodo = async (url: string): Promise<TodoResponse> => {
-  const response = await fetch(url);
+export const fetchTodo = async (index: number =1): Promise<TodoResponse> => {
+  const response = await fetch(
+    `https://my-json-server.typicode.com/arahansa/todojsmockdata/${index}`
+  );
   return response.json();
 };
 

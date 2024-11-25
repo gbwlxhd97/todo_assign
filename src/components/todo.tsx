@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import styles from './todo.module.css';
-import { fetchInitialTodos, fetchMoreTodo } from '../services';
+import { fetchTodoByIndex } from '../services';
 import { TodoResponse } from '../typings/todo';
 import { validateTodo } from '../utils';
 
@@ -9,16 +9,16 @@ const Todo = () => {
   const [todos, setTodos] = useState<TodoResponse>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [newTodo, setNewTodo] = useState('');
+  const [currentApiIndex, setCurrentApiIndex] = useState(1);
 
   useEffect(() => {
     const loadInitialTodos = async () => {
       setIsLoading(true);
       try {
-        const initialTodos = await fetchInitialTodos();
+        const initialTodos = await fetchTodoByIndex(currentApiIndex);
         setTodos(initialTodos);
       } catch (err) {
         console.log(err);
-        
       } finally {
         setIsLoading(false);
       }
@@ -28,10 +28,14 @@ const Todo = () => {
   }, []);
 
   const handleLoadMore = async () => {
+    if (currentApiIndex >= 4) return;
+    
     setIsLoading(true);
     try {
-      const moreTodos = await fetchMoreTodo();
-      setTodos(prev => [...prev, ...moreTodos as TodoResponse]);
+      const nextIndex = currentApiIndex + 1;
+      const moreTodos = await fetchTodoByIndex(nextIndex);
+      setTodos(prev => [...prev, ...moreTodos]);
+      setCurrentApiIndex(nextIndex);
     } catch (err) {
       console.log(err);
     } finally {
