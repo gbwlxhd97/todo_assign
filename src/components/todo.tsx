@@ -43,7 +43,7 @@ const Todo = () => {
       
       if (moreTodos === null) {
         toast.error('정상적인 데이터가 아닙니다. \n버튼을 숨김처리합니다.');
-        setCurrentApiIndex(4); // This will hide the button
+        setCurrentApiIndex(4);
         return;
       }
       
@@ -75,7 +75,7 @@ const Todo = () => {
     }
   };
 
-  const handleToggle = (id: number) => {
+  const handleCheck = (id: number) => {
     setTodos(prev => prev.map(todo => 
       todo.id === id 
       ? { ...todo, completed: !todo.completed } 
@@ -109,7 +109,7 @@ const Todo = () => {
               type="checkbox"
               checked={todo.completed}
               className={styles.checkbox}
-              onChange={() => handleToggle(todo.id)}
+              onChange={() => handleCheck(todo.id)}
             />
             <span className={todo.completed ? styles.completed : ''}>
               {todo.title}
