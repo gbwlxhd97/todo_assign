@@ -87,5 +87,6 @@ src/
 - 관련 커밋: [코드 구조 변경 커밋](https://github.com/gbwlxhd97/todo_assign/commit/f11c467fc19cbeaf5b364dcf89967dc2c98fe412)
 - 요구사항을 토대로 디자인적으로 꾸미며 개발하기보단 기본적인 레이아웃만 잡았으며 투두에 필요한 디자인 기능만 구현 하였습니다.
 - 개인적으로 UX경험을 살리기 위해서 첫 데이터 로딩이 끝나면 useRef 기능을 이용해 input에 focus 기능을 추가하였습니다.
-- suspense와 error boundary를 사용하여 조금 더 선언적인 코드를 작성하려고 하였으나, 현재 과제에서는 loading과 error 상태를 구분 짓는 것이 많이 사용되지 않다고 생각하여서 도입 하지 않았습니다.
+- suspense와 error boundary를 사용하여 조금 더 선언적인 코드를 작성하려고 하였으나, 현재 과제에서는 loading과 error 상태를 구분 짓는 것이 많이 사용되지 않다고 생각하여서 도입 하지 않았습니다.(만약 리팩토링 하게 된다면 react-query와 함께 적용하면 조금 더 가독성과 기능도 뛰어난 코드가 될 것 같습니다.)
+
 
