@@ -1,5 +1,6 @@
 import Layout from './components/Layout'
-import Todo from './components/Todo'
+import Todo from './components/todo'
+
 import './global.css'
 
 function App() {

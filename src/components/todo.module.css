@@ -2,3 +2,7 @@
   border: 1px solid red;
   flex: 9;
 }
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
