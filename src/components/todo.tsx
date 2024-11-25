@@ -4,6 +4,7 @@ import styles from './todo.module.css';
 import { fetchTodoByIndex } from '../services';
 import { TodoResponse } from '../typings/todo';
 import { validateTodo } from '../utils';
+import { ClipLoader } from 'react-spinners';
 
 const Todo = () => {
   const [todos, setTodos] = useState<TodoResponse>([]);
@@ -123,7 +124,15 @@ const Todo = () => {
         </div>
       ))}
 
-      {isLoading && <div>Loading...</div>}
+      {isLoading && (
+        <div className={styles.loaderContainer}>
+          <ClipLoader
+            color="#0066ff"
+            size={35}
+            speedMultiplier={0.8}
+          />
+        </div>
+      )}
       
       {currentApiIndex < 4 && (
         <button 

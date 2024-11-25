@@ -79,3 +79,10 @@
 .deleteButton:hover {
   color: #ff0000;
 }
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
