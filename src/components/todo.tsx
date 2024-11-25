@@ -9,7 +9,6 @@ const Todo = () => {
   const [todos, setTodos] = useState<TodoResponse>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [newTodo, setNewTodo] = useState('');
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const loadInitialTodos = async () => {
@@ -61,7 +60,9 @@ const Todo = () => {
 
   const handleToggle = (id: number) => {
     setTodos(prev => prev.map(todo => 
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      todo.id === id 
+      ? { ...todo, completed: !todo.completed } 
+      : todo
     ));
   };
 
@@ -79,7 +80,7 @@ const Todo = () => {
           className={styles.input}
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           placeholder="Input task name then tap Enter to add"
         />
       </div>
