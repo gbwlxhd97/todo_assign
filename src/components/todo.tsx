@@ -16,9 +16,14 @@ const Todo = () => {
       setIsLoading(true);
       try {
         const initialTodos = await fetchTodoByIndex(currentApiIndex);
+        if (initialTodos === null) {
+          toast.error('정상적인 데이터가 아닙니다.');
+          return;
+        }
         setTodos(initialTodos);
       } catch (err) {
         console.log(err);
+        toast.error('데이터를 불러오는데 실패했습니다.');
       } finally {
         setIsLoading(false);
       }
@@ -34,6 +39,13 @@ const Todo = () => {
     try {
       const nextIndex = currentApiIndex + 1;
       const moreTodos = await fetchTodoByIndex(nextIndex);
+      
+      if (moreTodos === null) {
+        toast.error('정상적인 데이터가 아닙니다. \n버튼을 숨김처리합니다.');
+        setCurrentApiIndex(4); // This will hide the button
+        return;
+      }
+      
       setTodos(prev => [...prev, ...moreTodos]);
       setCurrentApiIndex(nextIndex);
     } catch (err) {
@@ -113,13 +125,15 @@ const Todo = () => {
 
       {isLoading && <div>Loading...</div>}
       
-      <button 
-        className={styles.loadMoreButton}
-        onClick={handleLoadMore} 
-        disabled={isLoading}
-      >
-        {isLoading ? 'Loading...' : 'Load More'}
-      </button>
+      {currentApiIndex < 4 && (
+        <button 
+          className={styles.loadMoreButton}
+          onClick={handleLoadMore} 
+          disabled={isLoading}
+        >
+          {isLoading ? 'Loading...' : 'Load More'}
+        </button>
+      )}
     </div>
   );
 };
