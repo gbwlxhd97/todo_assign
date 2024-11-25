@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import styles from './todo.module.css';
 import { fetchTodoByIndex } from '../services';
@@ -11,6 +11,7 @@ const Todo = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [newTodo, setNewTodo] = useState('');
   const [currentApiIndex, setCurrentApiIndex] = useState(1);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const loadInitialTodos = async () => {
@@ -27,9 +28,9 @@ const Todo = () => {
         toast.error('데이터를 불러오는데 실패했습니다.');
       } finally {
         setIsLoading(false);
+        inputRef.current?.focus();
       }
     };
-
     loadInitialTodos();
   }, []);
 
@@ -93,6 +94,7 @@ const Todo = () => {
       
       <div className={styles.inputContainer}>
         <input
+          ref={inputRef}
           type="text"
           className={styles.input}
           value={newTodo}
