@@ -1,10 +1,14 @@
+import Layout from './components/Layout'
+import Todo from './components/Todo'
 import './global.css'
 
 function App() {
 
   return (
     <>
-      <h1>Hello World</h1>
+      <Layout>
+        <Todo />
+      </Layout>
     </>
   )
 }
